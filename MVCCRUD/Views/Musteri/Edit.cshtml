@@ -1,0 +1,29 @@
+﻿@using MVCCRUD.Entities.Concrete
+@model Musteri
+
+<div class="card">
+    <div class="card-header">
+        YENİ
+    </div>
+    <div class="card-body">
+        <form class="row g-3" asp-controller="Musteri" asp-action="Update">
+            <div class="col-md-12">
+                <label asp-for="Ad" class="form-label">Adı</label>
+                <input asp-for="Ad" class="form-control" />
+            </div>
+            <div class="col-md-12">
+                <label asp-for="Soyad" class="form-label">Soyadı</label>
+                <input asp-for="Soyad" class="form-control" />
+            </div>
+            <div class="col-md-12">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" class="form-control" />
+            </div>
+            <div class="col-12">
+                <input type="submit" class="btn btn-success" value="Kaydet" />
+                <input type="hidden" asp-for="Id" />
+            </div>
+        </form>
+    </div>
+    
+</div>

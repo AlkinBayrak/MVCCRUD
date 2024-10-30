@@ -1,0 +1,32 @@
+﻿@using MVCCRUD.Entities.Concrete
+@model Siparis
+<div class="card">
+    <div class="card-header">
+        YENİ
+    </div>
+    <div class="card-body">
+        <form class="row g-3" asp-controller="Siparis" asp-action="Create">
+            <div class="col-md-12">
+                <label asp-for="Musteri" class="form-label"></label>
+                <input asp-for="Musteri.Ad" class="form-control" />
+                <input asp-for="Musteri.Soyad" class="form-control" />
+                <input asp-for="Musteri.Email" class="form-control" />
+                <span asp-validation-for="Musteri" class="text-danger"></span>
+            </div>
+            <div class="col-md-12">
+                <label asp-for="Urun" class="form-label"></label>
+                <input asp-for="Urun.UrunAdi" class="form-control" />
+                <input asp-for="Urun.Fiyat" class="form-control" />
+                <span asp-validation-for="Urun" class="text-danger"></span>
+            </div>
+            <div class="col-md-12">
+                <label asp-for="SiparisTarihi" class="form-control"></label>
+                <span asp-validation-for="SiparisTarihi" class="text-danger"></span>
+            </div>
+            <div class="col-12">
+                <input type="submit" class="btn btn-success" value="Kaydet" />
+            </div>
+        </form>
+    </div>
+
+</div>
