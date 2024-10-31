@@ -1,24 +1,41 @@
 ﻿@using MVCCRUD.Entities.Concrete
 @model IEnumerable<Siparis>
 
-
 <div class="container mt-5">
-    <h2 class="mb-4">Siparisler</h2>
-    <div class="row">
-        @foreach (var item in Model)
-        {
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">@item.Musteri.Ad @item.Musteri.Soyad</h5>
-                    <h5 class="card-title">@item.Urun.UrunAdi @item.Urun.Fiyat</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">@item.MusteriId</h6>
-                </div>
-            </div>
-        }
+    <h2>Siparişler</h2>
 
+    <div class="card">
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Sipariş ID</th>
+                        <th>Müşteri</th>
+                        <th>Ürün</th>
+                        <th>Sipariş Tarihi</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var siparis in Model)
+                    {
+                        <tr>
+                            <td>@siparis.Id</td>
+                            <td>@siparis.Musteri.Ad @siparis.Musteri.Soyad</td>
+                            <td>@siparis.Urun.UrunAdi</td>
+                            <td>@siparis.SiparisTarihi.ToShortDateString()</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@siparis.Id" class="btn btn-warning btn-sm">Düzenle</a> 
+                                <a asp-action="Delete" asp-route-id="@siparis.Id" class="btn btn-danger btn-sm">Sil</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div class="mt-5">
-        <a asp-action="Create" class="btn btn-primary">Ekle</a>
+
+    <div class="mt-3">
+        <a asp-action="Create" class="btn btn-primary">Yeni Sipariş Ekle</a>
     </div>
-  
 </div>

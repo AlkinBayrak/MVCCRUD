@@ -1,0 +1,25 @@
+﻿@using MVCCRUD.Entities.Concrete
+@model Urun
+
+<div class="card">
+    <div class="card-header">
+        YENİ
+    </div>
+    <div class="card-body">
+        <form class="row g-3" asp-controller="Urun" asp-action="Update">
+            <div class="col-md-12">
+                <label asp-for="UrunAdi" class="form-label">Adı</label>
+                <input asp-for="UrunAdi" class="form-control" />
+            </div>
+            <div class="col-md-12">
+                <label asp-for="Fiyat" class="form-label">Soyadı</label>
+                <input asp-for="Fiyat" class="form-control" />
+            </div>
+            <div class="col-12">
+                <input type="submit" class="btn btn-success" value="Kaydet" />
+                <input type="hidden" asp-for="Id" />
+            </div>
+        </form>
+    </div>
+
+</div>
